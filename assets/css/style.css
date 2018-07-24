@@ -1,0 +1,170 @@
+/*header {
+  max-width: auto;
+  background-image:url("../images/Ojd0Q.png");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+*/
+*{
+  margin: 0;
+  padding: 0;
+}
+#c {
+  height: 1200px;
+}
+header {
+  position: absolute;
+  text-align: center;
+  width: 70%;
+  height: 150px;
+  background: black;
+  border: solid lawngreen 1px; 
+  transform: translate(-50%, -50%);
+   top: 10%;
+  left: 50%;
+  /* border-radius: 50%;*/
+}
+#start-button {
+  border: solid lawngreen 1px; 
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 95px;
+  background: black;
+  font-family:'Matrix_vs_Miltown Regular';
+  color: lawngreen;
+  text-align: center;
+  /*border: solid lawngreen 1px; */
+}
+#score {
+  margin-left: 5px;
+  position: absolute;
+  text-align: center;
+  width: 15%;
+  color: lawngreen;
+  background: black;
+}
+#nscore {
+  margin-left: 200px;
+  position: absolute;
+  text-align: center;
+  width: 10%;
+  color: lawngreen;
+  background: black;
+
+} 
+#timer{
+  position: absolute;
+  left: 425px;
+  text-align: center;
+  width: 20%;
+  color: lawngreen;
+  background: black;
+
+}
+
+h3 {
+  font-family:'Times New Roman', Times, serif;
+  font-size: 24px;
+}
+
+span {
+  display: none;
+}
+/**/
+header:hover span{
+  display: none;
+}
+ header:hover:before {
+  content: "CLICK TO START";
+  font-size: 18px;
+  line-height: 100px;
+  font-family:'Times New Roman', Times, serif;
+  color: lawngreen;
+  font-weight: bold;
+  float: right;
+  margin-right: 75px;
+}
+
+.wrapper {
+  font-size: 22px;
+  font-family:'Times New Roman', Times, serif;
+  color: lawngreen;
+  text-align: center;
+  border: solid lawngreen 1px; 
+  position: absolute;
+  text-align: center;
+  width: 70%; 
+  height: auto;
+  background:black; 
+  transform: translate(-50%, -50%);
+  top: 550px;
+  left: 50%;
+  overflow: auto;
+}
+
+#submit-answers {
+  background: black; 
+  color: lawngreen;
+  border: solid 1px lawngreen;  
+}
+
+/* Page settings */
+html {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #fff 0%, #aaa 100%) no-repeat;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+body {
+  text-align: center;
+  display: table;
+  background: black;
+  max-width: 100% auto;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+canvas {display:block;}
+
+/*#author {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color : #0F0;
+  z-index : 1;
+  box-sizing: border-box;
+  vertical-align: middle;
+}*/
+
+
+span {
+  font-family: monospace;
+  font-size: 1.5em;
+}
+/*span:after {
+  content:"_gheorghe";
+  opacity: 0;
+  animation: cursor 1s infinite;
+}*/
+@keyframes cursor {
+  0% {
+      opacity: 0;
+  }
+  40% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
+  }
+  90% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
