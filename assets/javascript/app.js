@@ -59,130 +59,107 @@ setInterval(draw, 90);
 /**************************************************/
 //              My own code starts here.          //
 /*************************************************/
-$(document).ready(function(){
-//validate the answers
-gameRun = 0;
-$("#start-tab").click(function gameStart(){
+$(document).ready(function () {
+    //validate the answers
+    gameRun = 0;
+    $("#start-tab").on("click", gameStart)
 
 
+    function gameStart() {
+        gameRun = 1;
+        // counter = 0;
+        count = 60;
+        var timer = 0;
 
-gameRun = 1;
-var counter = 0;
-var timeleft = 60;
-var timer = $("#timer").text(timer);
-setInterval(countDown,1000);
-console.log(timer);
-validate();
+        timer = setInterval(countDown, 1000);
+        
 
-function countDown() {
-    counter++;
-}
+
+        function countDown() {
+            // counter++;
+            count--;
+            if (count <= 0) {
+                clearInterval(timer);
+                return;
+            }
+           $("#timer").html( count + " sec");
+            
+            console.log(timer);
+        }
+    }
+    timeZero();
+
+
+    function timeZero() {
+        gameRun = 0;
+
+        if (timer === 0) {
+
+            alert("time's up");
+            validate();
+        }
+    }
+    function validate() {
+        numberOfQuestions = 6;
+        var score = 0;
+        // var timeAlloted = 60;
+        var missed = 0;
+
+        var x = document.forms["triviaReloaded"]["q1"].value;
+        var y = document.forms["triviaReloaded"]["q2"].value;
+        var z = document.forms["triviaReloaded"]["q3"].value;
+        var xx = document.forms["triviaReloaded"]["q4"].value;
+        var yy = document.forms["triviaReloaded"]["q5"].value;
+        var zz = document.forms["triviaReloaded"]["q6"].value;
+        //  var x = $("#myForm")["triviaReloaded"]["q1"].value;???
+        if (x == null || x == '') {
+            alert("you missed a question 1");
+            missed++;
+        } else if (x == "a") {
+            score++;
+            console.log("score =" + score);
+        }
+        if (y == null || y == '') {
+            alert("you missed a question 2 ");
+            missed++;
+        } else if (y == "c") {
+            score++;
+            console.log("score =" + score);
+        }
+        if (z == null || z == '') {
+            alert("you missed a question 3 ");
+            missed++;
+        } else if (z == "d") {
+            score++;
+            console.log("score =" + score);
+        }
+        if (xx == null || xx == '') {
+            alert("you missed a question 4 ");
+            missed++;
+        } else if (xx == "c") {
+            score++;
+            console.log("score =" + score);
+        }
+        if (yy == null || yy == '') {
+            alert("you missed a question 5 ");
+            missed++;
+        } else if (yy == "d") {
+            score++;
+            console.log("score =" + score);
+        }
+        if (zz == null || zz == '') {
+            alert("you missed a question 6 ");
+            missed++;
+        } else if (zz == "c") {
+            score++;
+            console.log("score =" + score);
+        }
+        console.log("score =" + score);
+        console.log("missed = " + missed);
+        $("#score").text(score);
+    }
+
 });
-function validate() {
-    numberOfQuestions = 6;
-    var score = 0;
-    var timeAlloted = 60;
-    var missed = 0;
-
-    var x = document.forms["triviaReloaded"]["q1"].value;
-    var y = document.forms["triviaReloaded"]["q2"].value;
-    var z = document.forms["triviaReloaded"]["q3"].value;
-    var xx = document.forms["triviaReloaded"]["q4"].value;
-    var yy = document.forms["triviaReloaded"]["q5"].value;
-    var zz = document.forms["triviaReloaded"]["q6"].value;
-    //  var x = $("#myForm")["triviaReloaded"]["q1"].value;???
-    if (x == null || x == '') {
-        alert("you missed a question 1");
-        missed++;
-    } else if (x == "a") {
-        score++;
-        console.log("score =" + score);
-    } 
-    if (y == null || y == '') {
-        alert("you missed a question 2 ");
-        missed++;
-    } else if ( y == "c") {
-        score++;
-        console.log("score =" + score);
-    }
-    if (z == null || z == '') {
-        alert("you missed a question 3 ");
-        missed++;
-    } else if ( z == "d") {
-        score++;
-        console.log("score =" + score);
-    }
-    if (xx == null || xx == '') {
-        alert("you missed a question 4 ");
-        missed++;
-    } else if ( xx == "c") {
-        score++;
-        console.log("score =" + score);
-    }
-    if (yy == null || yy == '') {
-        alert("you missed a question 5 ");
-        missed++;
-    } else if ( yy == "d") {
-        score++;
-        console.log("score =" + score);
-    }
-    if (zz == null || zz == '') {
-        alert("you missed a question 6 ");
-        missed++;
-    } else if ( zz == "c") {
-        score++;
-        console.log("score =" + score);
-    }
-    console.log("score =" + score);
-    console.log("missed = " + missed);
-    $("#score").text(score);
-}
-
-});
-
-//Game section starts here:
-
-//$(document).ready(function () {
-
-    //function to start game
-  //  var wins = 0;//
-  //  var losses = 0;
-   // var correctAnswers = 0;
-   // var wrongAnswers = 0;
-    //countdown time set to 10 sec
-   // $("#start").on("click", function () {
-   //     var seconds = 10;
-   //     alert("RELOADED");
-    //    runGame();
-
-   //     function runGame() {
-       //     appear(".wrapper");
-   //     //  countDownTimer = setInterval(runGame, 1000);
-      //  }
-       // });  //function for countdown timer;
-       // function countDownTimer() {
-        //    seconds--;
-         //   $("#count-down-timer").html("<h2>" + seconds + "</h2>");
-       //         alert("Times Up!");
-
-        //    }
-     //   }
-          //function to to stop countdown;
-      //      function time0() {
-     //           clearInterval();
-     //       }
-
-            //function to show stuff
-    //        function appear(stuff) {
-    //            $(stuff).show;
-   //         }
-
-
-            //function to hide stuff
-  //          function disappear(stuff) {
-  //              $(stuff).hide;
-   //         }
-  //      }
 
 
 
