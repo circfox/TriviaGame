@@ -1,5 +1,5 @@
 
-// NOTE: this part of the code was adopted from https://code.sololearn.com/Wj7ZWBg5m2OG/#html I used this as the Matrix rain code background for this homework.
+// NOTE: The Matrix rain code is not my code and was adopted from https://code.sololearn.com/Wj7ZWBg5m2OG/#html This is used for the background effects for this homework.
 //setting the canvas by id c
 var c = document.getElementById("c");
 var ctx = c.getContext("2d");
@@ -60,106 +60,91 @@ setInterval(draw, 90);
 //              My own code starts here.          //
 /*************************************************/
 $(document).ready(function () {
-    //validate the answers
     gameRun = 0;
+    
     $("#start-tab").on("click", gameStart)
-
-
+    
+});   
     function gameStart() {
         gameRun = 1;
-        // counter = 0;
-        count = 60;
-        var timer = 0;
-
+        var count = 20;
+        var timer;
         timer = setInterval(countDown, 1000);
-        
-
-
         function countDown() {
-            // counter++;
             count--;
-            if (count <= 0) {
+            $("#timer").html(count + " sec");
+            if (count == 0) {
                 clearInterval(timer);
-                return;
+                validate();
             }
-           $("#timer").html( count + " sec");
-            
             console.log(timer);
         }
     }
-    timeZero();
 
+$("#submit-answers").on("click", validate);
+    
+function validate() {
+    clearInterval(timer);
+    numberOfQuestions = 6;
+    var score = 0;
+    var missed = 0;
+    $("#submit-answers").hide();
+    var x = document.forms["triviaReloaded"]["q1"].value;
+    var y = document.forms["triviaReloaded"]["q2"].value;
+    var z = document.forms["triviaReloaded"]["q3"].value;
+    var xx = document.forms["triviaReloaded"]["q4"].value;
+    var yy = document.forms["triviaReloaded"]["q5"].value;
+    var zz = document.forms["triviaReloaded"]["q6"].value;
 
-    function timeZero() {
-        gameRun = 0;
-
-        if (timer === 0) {
-
-            alert("time's up");
-            validate();
-        }
-    }
-    function validate() {
-        numberOfQuestions = 6;
-        var score = 0;
-        // var timeAlloted = 60;
-        var missed = 0;
-
-        var x = document.forms["triviaReloaded"]["q1"].value;
-        var y = document.forms["triviaReloaded"]["q2"].value;
-        var z = document.forms["triviaReloaded"]["q3"].value;
-        var xx = document.forms["triviaReloaded"]["q4"].value;
-        var yy = document.forms["triviaReloaded"]["q5"].value;
-        var zz = document.forms["triviaReloaded"]["q6"].value;
-        //  var x = $("#myForm")["triviaReloaded"]["q1"].value;???
-        if (x == null || x == '') {
-            alert("you missed a question 1");
-            missed++;
-        } else if (x == "a") {
-            score++;
-            console.log("score =" + score);
-        }
-        if (y == null || y == '') {
-            alert("you missed a question 2 ");
-            missed++;
-        } else if (y == "c") {
-            score++;
-            console.log("score =" + score);
-        }
-        if (z == null || z == '') {
-            alert("you missed a question 3 ");
-            missed++;
-        } else if (z == "d") {
-            score++;
-            console.log("score =" + score);
-        }
-        if (xx == null || xx == '') {
-            alert("you missed a question 4 ");
-            missed++;
-        } else if (xx == "c") {
-            score++;
-            console.log("score =" + score);
-        }
-        if (yy == null || yy == '') {
-            alert("you missed a question 5 ");
-            missed++;
-        } else if (yy == "d") {
-            score++;
-            console.log("score =" + score);
-        }
-        if (zz == null || zz == '') {
-            alert("you missed a question 6 ");
-            missed++;
-        } else if (zz == "c") {
-            score++;
-            console.log("score =" + score);
-        }
+    if (x == null || x == '') {
+        //alert("you missed a question 1");
+        missed++;
+    } else if (x == "d") {
+        score++;
         console.log("score =" + score);
-        console.log("missed = " + missed);
-        $("#score").text(score);
-    }
+    } 
+    if (y == null || y == '') {
+        //alert("you missed a question 2 ");
+        missed++;
+    } else if (y == "c") {
+        score++;
+        console.log("score =" + score);
+    }   
+    if (z == null || z == '') {
+        //alert("you missed a question 3 ");
+        missed++;
+    } else if (z == "d") {
+        score++;
+        console.log("score =" + score);
+    } 
+    if (xx == null || xx == '') {
+        //alert("you missed a question 4 ");
+        missed++;
+    } else if (xx == "c") {
+        score++;
+        console.log("score =" + score);
+    } 
+    if (yy == null || yy == '') {
+        //alert("you missed a question 5 ");
+        missed++;
+    } else if (yy == "d") {
+        score++;
+        console.log("score =" + score);
+    } 
+    if (zz == null || zz == '') {
+        //alert("you missed a question 6 ");
+        missed++;
+    } else if (zz == "c") {
+        score++;
+        console.log("score =" + score);
+    } 
+    console.log("score =" + score);
+    console.log("missed = " + missed);
+    $("#nscore").text(score);
+    $("#missed").text(missed);
+}
 
-});
+
 
 
 

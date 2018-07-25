@@ -28,8 +28,8 @@
       <h1> JS !TRIVIA RELOADED</h1>
       <h2 id="timer"></h2>
       <h2 id="score">SCORE:</h2>
-      <span id="nscore"></span>
-      <span id="missed">MISSED:</span>
+      <h2 id="nscore"></h2>
+      <h2 id="missed">NO ANSWER:</h2>
     
     </header>
     <div class="container">  > 
@@ -78,7 +78,7 @@
         <br>
         <br>
 
-        <h3>6. Do you think you are living in a matrix now? </h3>
+        <h3>6. What do you think, are we  living in some kind of matrix? </h3>
 
         <input type="radio" name="q6" value="a" id="q6a">A. Yes
         <input type="radio" name="q6" value="b" id="q6b">B. No
@@ -86,7 +86,7 @@
         <br>
         <br>
      
-       <input type="button" id="submit-answers" value="Submit">
+       <input type="button" id="submit-answers" value="Submit" onclick = "return validate()">
       </form>
       <br>
       <!--<button type="button" id="submit">SubmitAnswers</button>
