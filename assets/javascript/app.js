@@ -66,7 +66,10 @@ $(document).ready(function () {
     
 });   
     function gameStart() {
-        gameRun = 1;
+        //gameRun = 1;
+        numberOfQuestions = 6;
+        score = 0;
+        missed = 6;
         var count = 20;
         var timer;
         timer = setInterval(countDown, 1000);
@@ -88,7 +91,7 @@ function validate() {
     numberOfQuestions = 6;
     var score = 0;
     var missed = 0;
-    $("#submit-answers").hide();
+    $("#submit-answers").hide();//hides the submit button when time is out
     var x = document.forms["triviaReloaded"]["q1"].value;
     var y = document.forms["triviaReloaded"]["q2"].value;
     var z = document.forms["triviaReloaded"]["q3"].value;

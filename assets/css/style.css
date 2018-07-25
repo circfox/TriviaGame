@@ -19,7 +19,7 @@ header {
   width: 65%;
   height: 150px;
   background: black;
-  border: solid lawngreen 1px; 
+  border: solid lawngreen 2px; 
   transform: translate(-50%, -50%);
    top: 10%;
   left: 50%;
@@ -102,7 +102,7 @@ header:hover span{
   font-family:'Times New Roman', Times, serif;
   color: lawngreen;
   text-align: center;
-  border: solid lawngreen 1px; 
+  border: solid lawngreen 2px; 
   position: absolute;
   text-align: center;
   width: 65%; 
