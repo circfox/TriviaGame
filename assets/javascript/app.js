@@ -61,37 +61,51 @@ setInterval(draw, 90);
 /*************************************************/
 $(document).ready(function () {
     gameRun = 0;
-    
+    // if (gameRun = 0 && (!$("#start-tab").on("click", gameStart))) {
+    //     $("#submit-answers", "#timer.html").hide();
+    // } else {
+    //     $("#submit-answers", "#timer.html").show();
+    // }
+
+
+
     $("#start-tab").on("click", gameStart)
-    
-});   
-    function gameStart() {
-        //gameRun = 1;
-        numberOfQuestions = 6;
-        score = 0;
-        missed = 6;
-        var count = 20;
-        var timer;
-        timer = setInterval(countDown, 1000);
-        function countDown() {
-            count--;
-            $("#timer").html(count + " sec");
-            if (count == 0) {
-                clearInterval(timer);
-                validate();
-            }
-            console.log(timer);
+
+});
+function gameStart() {
+    gameRun = 1;
+    $("#submit-answers", "#timer.html").show();
+    numberOfQuestions = 6;
+    score = 0;
+    missed = 6;
+    var count = 20;
+    var timer;
+    timer = setInterval(countDown, 1000);
+    function countDown() {
+        count--;
+        $("#timer").html(count);
+        if (count == 0) {
+            clearInterval(timer);
+            validate();
+            $("#timer").hide();
+
         }
+        console.log(timer);
     }
+}
 
 $("#submit-answers").on("click", validate);
-    
+
 function validate() {
+    gameRun = 0;
     clearInterval(timer);
+    //timer = null;
+
     numberOfQuestions = 6;
     var score = 0;
     var missed = 0;
-    $("#submit-answers").hide();//hides the submit button when time is out
+    //var incorrect = 0;
+    $("#submit-answers", "#timer.html").hide();//hides the submit button when time is out
     var x = document.forms["triviaReloaded"]["q1"].value;
     var y = document.forms["triviaReloaded"]["q2"].value;
     var z = document.forms["triviaReloaded"]["q3"].value;
@@ -105,47 +119,57 @@ function validate() {
     } else if (x == "d") {
         score++;
         console.log("score =" + score);
-    } 
+    }
     if (y == null || y == '') {
         //alert("you missed a question 2 ");
         missed++;
     } else if (y == "c") {
         score++;
         console.log("score =" + score);
-    }   
+    }
     if (z == null || z == '') {
         //alert("you missed a question 3 ");
         missed++;
     } else if (z == "d") {
         score++;
         console.log("score =" + score);
-    } 
+    }
     if (xx == null || xx == '') {
         //alert("you missed a question 4 ");
         missed++;
     } else if (xx == "c") {
         score++;
         console.log("score =" + score);
-    } 
+    }
     if (yy == null || yy == '') {
         //alert("you missed a question 5 ");
         missed++;
     } else if (yy == "d") {
         score++;
         console.log("score =" + score);
-    } 
+    }
     if (zz == null || zz == '') {
         //alert("you missed a question 6 ");
         missed++;
     } else if (zz == "c") {
         score++;
         console.log("score =" + score);
-    } 
+    } //else {
+    //  incorrect++;
+    //}
     console.log("score =" + score);
     console.log("missed = " + missed);
     $("#nscore").text(score);
     $("#missed").text(missed);
 }
+//function startOver() {
+//    var test = $("<button type = 'button'>START //OVER </button>");
+ //   $("start-over").append(test);
+ //   test.on("click", function () {
+
+ //   test.remove();   
+ //   })
+//}    
 
 
 

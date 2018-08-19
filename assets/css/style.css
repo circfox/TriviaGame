@@ -66,9 +66,10 @@ h1 {
 }
 #timer{
   position: absolute;
-  left: 425px;
+  left:350px;
   text-align: center;
   width: 20%;
+  height: 37px;
   color: lawngreen;
   background: black;
 
