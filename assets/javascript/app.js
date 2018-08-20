@@ -61,51 +61,47 @@ setInterval(draw, 90);
 /*************************************************/
 $(document).ready(function () {
     gameRun = 0;
-    // if (gameRun = 0 && (!$("#start-tab").on("click", gameStart))) {
-    //     $("#submit-answers", "#timer.html").hide();
-    // } else {
-    //     $("#submit-answers", "#timer.html").show();
-    // }
-
-
-
+    //hideSubmitBtn();
+    reset();
     $("#start-tab").on("click", gameStart)
 
-});
+
 function gameStart() {
     gameRun = 1;
-    $("#submit-answers", "#timer.html").show();
+    showSubmitBtn();
     numberOfQuestions = 6;
     score = 0;
     missed = 6;
-    var count = 20;
+    var count = 10;
     var timer;
     timer = setInterval(countDown, 1000);
     function countDown() {
         count--;
-        $("#timer").html(count);
+        $("#timer").html(count + " sec");
         if (count == 0) {
             clearInterval(timer);
             validate();
-            $("#timer").hide();
-
         }
         console.log(timer);
     }
 }
 
-$("#submit-answers").on("click", validate);
+    $("#submit-answers").on("click", validate);
+
+function reset() {
+    gameRun = 0;
+    hideSubmitBtn();
+    score = 0;
+    missed = 0;
+}
 
 function validate() {
-    gameRun = 0;
     clearInterval(timer);
-    //timer = null;
-
     numberOfQuestions = 6;
     var score = 0;
     var missed = 0;
-    //var incorrect = 0;
-    $("#submit-answers", "#timer.html").hide();//hides the submit button when time is out
+    hideSubmitBtn();
+    //$("#submit-answers").hide();//hides the submit button when time is out
     var x = document.forms["triviaReloaded"]["q1"].value;
     var y = document.forms["triviaReloaded"]["q2"].value;
     var z = document.forms["triviaReloaded"]["q3"].value;
@@ -154,25 +150,22 @@ function validate() {
     } else if (zz == "c") {
         score++;
         console.log("score =" + score);
-    } //else {
-    //  incorrect++;
-    //}
+    }
     console.log("score =" + score);
     console.log("missed = " + missed);
     $("#nscore").text(score);
     $("#missed").text(missed);
 }
-//function startOver() {
-//    var test = $("<button type = 'button'>START //OVER </button>");
- //   $("start-over").append(test);
- //   test.on("click", function () {
+function hideSubmitBtn() {
+    $("#submit-answers").hide();
+}
 
- //   test.remove();   
- //   })
-//}    
+function showSubmitBtn() {
+    // if(gamerun === 1) {}
+    $("#submit-answers").show();
+}
 
-
-
+});
 
 
 
